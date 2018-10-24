@@ -1,31 +1,27 @@
 <template>
     <div id="app">
-        <div id="calendar-week" class="container">
-            <!-- Calendar week -->
-        </div>
-        <div id="calendar-entry">
-            <!-- Calendar entry -->
-        </div>
+        <CalendarWeek />
+        <CalendarEntry />
     </div>
 </template>
 
 <script>
+import CalendarWeek from './components/CalendarWeek.vue';
+import CalendarEntry from './components/CalendarEntry.vue'; 
 export default {
-    name: 'App'
+    name: 'App',
+    components: {
+        CalendarWeek,
+        CalendarEntry
+    }
 }
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 html, body {
     height: 100%;
 }
 #app {
     /* SCSS for app */
-}
-#calendar-week {
-    /* SCSS for calendar week */
-}
-#calendar-entry {
-    /* SCSS for calendar entry */
 }
 </style>
 
