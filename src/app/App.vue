@@ -16,12 +16,21 @@ export default {
     }
 }
 </script>
-<style lang="scss" scoped>
-html, body {
+
+<style lang="scss">
+    html, body {
     height: 100%;
 }
+</style>
+
+<style lang="scss" scoped>
 #app {
-    /* SCSS for app */
+    height: inherit;
+    background: #5e5e5e;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 </style>
 
