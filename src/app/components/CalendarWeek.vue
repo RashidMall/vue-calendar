@@ -1,6 +1,11 @@
 <template>
     <div id="calendar-week" class="container">
-        <!-- Calendar week -->
+        <div class="row">
+            <CalendarDay v-for="day in sharedState.seedData"
+                :key="day.id"
+                :day="day"
+            />
+        </div>
     </div>
 </template>
 
@@ -23,6 +28,9 @@ export default {
 
 <style lang="scss" scoped>
 #calendar-week {
-    /* SCSS for calendar week */
+    margin-bottom: 40px;
+    .column {
+        padding: 0 0 0 0;
+    }
 }
 </style>
