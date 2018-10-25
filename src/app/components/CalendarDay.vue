@@ -7,8 +7,8 @@
                 <div>
                     <span class="text-center details">Get Groceries</span>
                     <div class="text-center icons">
-                        <i class="fa fa-pencil-square edit-icon"></i>
-                        <i class="fa fa-trash-o delete-icon"></i>
+                        <i class="fas fa-pen-square edit-icon"></i>
+                        <i class="fas fa-trash-alt delete-icon"></i>
                     </div>
                 </div>
             </div>
@@ -16,10 +16,61 @@
     </div>
 </template>
 
-
 <script>
 export default {
     name: 'CalendarDay',
     props: ['day']
 }
 </script>
+
+<style lang="scss" scoped>
+    .day {
+        background-color: #c21a68;
+        color: #FFF;
+        border-left: 1px solid #8f8f8f;
+        border-bottom: 1px solid #8f8f8f;
+        font-size: 12px;
+        cursor: pointer;
+        &:hover {
+            background: darken(#eb1e7e, 5%);
+        }
+        .day-banner {
+            background-color: #960e62;
+            color: #ffffff;
+            padding: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+        .day-details {
+            padding: 10px;
+        }
+        &:last-child {
+            border-right: 1px solid #8f8f8f;
+        }
+        .day-event {
+            background-color: #cbe7aa;
+            margin-top: 6px;
+            margin-bottom: 6px;
+            display: block;
+            color: #1a1a1b;
+            padding: 5px;
+            .details {
+                display: block;
+            }
+            .icons .fas {
+                padding: 2px;
+            }
+            input {
+                background: none;
+                border: 0;
+                border-bottom: 1px solid #ffffff;
+                width: 100%;
+                &:focus {
+                    outline: none;
+                }
+            }
+        }
+    }
+</style>
