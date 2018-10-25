@@ -3,23 +3,24 @@
         <div class="day-banner text-center">{{ day.abbvTitle }}</div>
         <div class="day-details">
             <div class="day-number">{{ day.id }}</div>
-            <div class="day-event">
-                <div>
-                    <span class="text-center details">Get Groceries</span>
-                    <div class="text-center icons">
-                        <i class="fas fa-pen-square edit-icon"></i>
-                        <i class="fas fa-trash-alt delete-icon"></i>
-                    </div>
-                </div>
-            </div>
+            <CalendarEvent v-for="(event, index) in day.events"
+                :key="index"
+                :event="event"
+                :day="day"
+            />
         </div>
     </div>
 </template>
 
 <script>
+import CalendarEvent from './CalendarEvent.vue';
+
 export default {
     name: 'CalendarDay',
-    props: ['day']
+    props: ['day'],
+    components: {
+        CalendarEvent
+    }
 }
 </script>
 
@@ -48,29 +49,6 @@ export default {
         }
         &:last-child {
             border-right: 1px solid #8f8f8f;
-        }
-        .day-event {
-            background-color: #cbe7aa;
-            margin-top: 6px;
-            margin-bottom: 6px;
-            display: block;
-            color: #1a1a1b;
-            padding: 5px;
-            .details {
-                display: block;
-            }
-            .icons .fas {
-                padding: 2px;
-            }
-            input {
-                background: none;
-                border: 0;
-                border-bottom: 1px solid #ffffff;
-                width: 100%;
-                &:focus {
-                    outline: none;
-                }
-            }
         }
     }
 </style>
