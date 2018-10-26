@@ -7,6 +7,7 @@
             </p>
             <a class="btn btn-primary btn-sm" @click="submitEvent(inputEntry)">Submit</a>
         </div>
+        <p class="alert alert-danger" role="alert" v-if="error">You must type something</p>
     </div>
 </template>
 
@@ -17,7 +18,8 @@ export default {
     name: 'CalendarEntry',
     data(){
         return {
-            inputEntry: ''
+            inputEntry: '',
+            error: false
         }
     },
     computed: {
@@ -27,6 +29,9 @@ export default {
     },
     methods: {
         submitEvent(eventDetails){
+            if(eventDetails === ''){
+                return this.error = true;
+            }
             store.submitEvent(eventDetails);
             this.inputEntry = '';
         }
