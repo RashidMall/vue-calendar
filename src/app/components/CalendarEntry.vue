@@ -1,14 +1,14 @@
 <template>
-    <div id="calendar-entry">
-        <div class="calendar-entry-note">
-            <input type="text" name="" id="" placeholder="New Event" v-model="inputEntry" required>
-            <p class="calendar-entry-day">
-                Day of event: <span class="bold">{{ titleOfActiveDay }}</span>
+    <form>
+        <div class="form-group bg-light p-3 border border-primary rounded">
+            <input type="text" class="rounded" placeholder="New Event" v-model="inputEntry" required>
+            <p>
+                Day of event: <span class="font-weight-bold">{{ titleOfActiveDay }}</span>
             </p>
-            <a class="btn btn-primary btn-sm" @click="submitEvent(inputEntry)">Submit</a>
+            <a class="btn btn-primary btn-sm" @click="submitEvent(inputEntry)">Add</a>
         </div>
         <p class="alert alert-danger" role="alert" v-if="error">You must type something</p>
-    </div>
+    </form>
 </template>
 
 <script>
@@ -40,9 +40,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-#calendar-entry {
-    /* SCSS for calendar entry */
-}
 </style>
 
 
