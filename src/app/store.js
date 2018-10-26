@@ -24,4 +24,15 @@ export const store = {
         const activeDay= this.getActiveDay();
         activeDay.events.push({"details": eventDetails, "edit": false });
     },
+    /**
+     * 
+     * @param {int} dayId 
+     * @param {string} eventDetails
+     * Change the edit boolean of the intended event object from false to true
+     */
+    editEvent(dayId, eventDetails){
+        const day = this.state.seedData.find(day => dayId === day.id);
+        const event = day.events.find(event => events.details === eventDetails);
+        event.edit = true;
+    }
 }
