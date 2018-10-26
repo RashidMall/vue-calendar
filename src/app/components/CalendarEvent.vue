@@ -1,10 +1,17 @@
 <template>
     <div class="day-event" :style="getEventBackgroundColor">
-        <div>
+        <div v-if="!event.edit">
             <span class="text-center details">{{ event.details }}</span>
             <div class="text-center icons">
-                <i class="fas fa-pen-square edit-icon"></i>
+                <i class="fas fa-pen-square edit-icon"
+                    @click="editEvent(day.id, event.details)"></i>
                 <i class="fas fa-trash-alt delete-icon"></i>
+            </div>
+        </div>
+        <div v-if="event.edit">
+            <input type="text" :placeholder="event.details">
+            <div class="text-center">
+                <i class="fas fa-calendar-check"></i>
             </div>
         </div>
     </div>
