@@ -6,17 +6,22 @@ export const store = {
     },
     /**
      *  return the day object that has active: true
-     */
+     **/
     getActiveDay(){
         return this.state.seedData.find(day => day.active);
     },
     /**
      * sets the selected day to active: true 
      * and all other day objects to active: false
-     */
+     **/
     setActiveDay(dayId){
         this.state.seedData.map((dayObj) => {
             dayObj.id === dayId ? dayObj.active = true : dayObj.active = false;
         });
-    }
+    },
+
+    submitEvent(eventDetails){
+        const activeDay= this.getActiveDay();
+        activeDay.events.push({"details": eventDetails, "edit": false });
+    },
 }
